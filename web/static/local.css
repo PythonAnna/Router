@@ -4,8 +4,7 @@
   padding: 0;
 }
 
-ul,
-ol {
+ul, ol {
   list-style: none;
 }
 
@@ -30,20 +29,8 @@ button {
 body {
   font-family: "Inter", sans-serif;
   min-height: 100vh;
-  margin: 0;
 }
 
-.main,
-.hero {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Если на странице есть ввод для английского, меняем фон всего тела страницы */
 body:has(.input-english) {
   background-image: url("./img/image 2.png");
   background-size: cover;
@@ -52,23 +39,38 @@ body:has(.input-english) {
   background-repeat: no-repeat;
 }
 
-/* Аналогично для немецкого, если нужно */
 body:has(.input-german) {
   background-image: url("./img/image 5.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-.title__span{
-  color: #000;
+.main, .hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* Кнопка словарика (иконка книги) */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 100;
+  box-sizing: border-box;
+}
+
 .btn-dict {
-  background: transparent;
-  border: none;
-  cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
@@ -80,33 +82,56 @@ body:has(.input-german) {
   display: block;
 }
 
-/* Кнопка Ок в хедере */
-.ok-header-btn {
-  border: 2px solid #000;
-  border-radius: 14px;
-  background: transparent;
-  padding: 8px 20px;
-  color: #000;
+.topic {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.topic span {
   font-weight: bold;
+  color: #000;
   font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
   white-space: nowrap;
 }
 
-.ok-header-btn:hover {
-  background-color: rgba(0, 0, 0, 0.08);
+.input-english,
+.input-german {
+  flex: 1;
+  padding: 4px 0;
+  border: none;
+  border-bottom: 2px solid #000;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  color: #000;
 }
 
-/* Меню выбора языка */
+.ok-header-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ok-header-btn:hover {
+  opacity: 0.7;
+}
+
+.ok-header-btn svg {
+  transform: scaleX(-1);
+}
+
 .lang-menu-wrapper {
   position: relative;
 }
 
 .btn-lang-menu {
-  background: transparent;
-  border: none;
-  cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
@@ -133,7 +158,6 @@ body:has(.input-german) {
   display: block;
   padding: 10px 16px;
   color: #000;
-  text-decoration: none;
   font-weight: bold;
   transition: background-color 0.2s;
 }
@@ -144,62 +168,6 @@ body:has(.input-german) {
 
 .lang-option.active {
   background-color: rgba(0, 0, 0, 0.05);
-}
-
-.input-english,
-.input-german {
-  flex: 1;
-  padding: 4px 0;
-  border: none;
-  border-bottom: 2px solid #000;
-  border-radius: 0;
-  background: transparent;
-  outline: none;
-  font-size: 16px;
-  color: #000;
-}
-
-.dict-input {
-  padding: 8px 12px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  outline: none;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 30px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  /* Эффект матового стекла */
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-
-  z-index: 100;
-  box-sizing: border-box;
-}
-
-.topic {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  max-width: 500px;
-}
-
-.topic span {
-  font-weight: bold;
-  color: #000;
-  font-size: 16px;
-  white-space: nowrap;
 }
 
 .dict-english,
@@ -234,6 +202,13 @@ header {
   margin-bottom: 20px;
 }
 
+.dict-input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
 .btn-add {
   background-color: #51cf66;
   color: white;
@@ -261,69 +236,54 @@ header {
   margin-top: 20px;
 }
 
-.main h1 {
-  color: white;
-  font-size: 48px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Фоновый контейнер (для примера) */
 .game-screen {
   position: relative;
   width: 100%;
   height: 100vh;
-
   overflow: hidden;
 }
 
-/* Основное окно чата */
-.chat-wrapper {
+.chat-area {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 500px;
+  width: 95%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-  /* Эффект матового стекла */
-  background: rgba(255, 255, 255, 0.35);
+.chat-wrapper {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
   z-index: 100;
+  padding: 0;
 }
 
-/* Состояние: Свернут */
-.chat-wrapper.collapsed {
-  height: auto;
-}
-
-/* Состояние: Развернут */
-.chat-wrapper.expanded {
-  height: auto;
-  min-height: 250px;
-  padding-bottom: 10px;
-}
-
-/* Поле ввода сообщения */
 .chat-form {
   display: flex;
-  padding: 8px 10px;
-  gap: 8px;
+  align-items: center;
+  padding: 4px;
 }
 
 .chat-input {
   flex: 1;
-  padding: 8px 12px;
+  padding: 10px 20px;
   border: 2px solid #000;
-  border-radius: 5px;
+  border-radius: 25px;
   background: transparent;
   color: #000;
   outline: none;
   font-family: inherit;
+  font-size: 15px;
+  min-width: 0;
+  margin: 0;
 }
 
 .chat-input::placeholder {
@@ -331,95 +291,112 @@ header {
 }
 
 .chat-send {
+  width: 46px;
+  height: 46px;
   border: 2px solid #000;
-  border-radius: 5px;
-  background: transparent;
-  padding: 8px 14px;
-  color: #000;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: center;
   transition: background-color 0.2s;
+}
+
+.chat-send svg {
+  transform: scaleX(-1);
 }
 
 .chat-send:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Скрываем контент, когда чат свернут */
-.chat-wrapper.collapsed .chat-body {
+.dialog-area {
+  position: absolute;
+  bottom: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  z-index: 100;
 }
 
-/* Стили элементов внутри */
-.chat-header {
+.dialog-msg {
   display: flex;
   align-items: center;
-  padding: 10px;
-  gap: 10px;
+  gap: 12px;
+  max-width: 75%;
 }
 
-.chat-header .label {
-  color: #000;
-  font-weight: bold;
+.dialog-left {
+  align-self: flex-start;
 }
 
-.theme-input {
-  flex-grow: 1;
+.dialog-right {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.dialog-bubble {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 2px solid #000;
-  border-radius: 5px;
-  background: transparent;
-  padding: 8px 12px;
+  border-radius: 25px;
+  padding: 14px 26px;
+  font-size: 17px;
   color: #000;
-  outline: none;
+  font-weight: 500;
 }
 
-.theme-input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+.dialog-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  flex-shrink: 0;
+  border: 2px solid rgba(0, 0, 0, 0.15);
 }
 
-.ok-btn {
+.dialog-avatar-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   border: 2px solid #000;
-  border-radius: 5px;
-  background: transparent;
-  padding: 8px 16px;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.ok-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.messages-area {
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.msg-row.right { align-self: flex-end; }
-.msg-row.left { align-self: flex-start; }
-
-.bubble {
-  border: 2px solid #000;
-  padding: 5px 15px;
-  border-radius: 10px;
-  background: transparent;
-  font-family: sans-serif;
-  color: #000;
-}
-
-/* Картинка по центру */
-.center-image {
+.pin-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 80%;
-  max-height: 80vh;
+  bottom: 55%;
+  left: 54%;
+  transform: translateX(-50%);
+  max-width: 40%;
+  max-height: 20vh;
+  z-index: 1;
+}
+
+.volk-image {
+  position: absolute;
+  bottom: 40%;
+  left: 37%;
+  transform: translateX(-50%);
+  max-width: 40%;
+  max-height: 35vh;
   z-index: 1;
 }
