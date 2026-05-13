@@ -1,0 +1,13 @@
+var images = ['src="https://i.pinimg.com/736x/10/d4/68/10d468d452316b2c36c134597fd77eb4.jpg', 'src="https://www.umniza.de/WebRoot/Store22/Shops/62303963/5D15/548C/3779/A826/F4E1/0A0C/6D02/0CF3/F2-12654.jpg']; 
+var currentIndex = 0;
+
+function changeImage() {
+    document.getElementById('img').src = images[currentIndex];
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0; 
+    }
+}
+
+setInterval(changeImage, 3000);
