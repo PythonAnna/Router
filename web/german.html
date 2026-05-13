@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Немецкий</title>
+    <link rel="stylesheet" href="./static/local.css">
+</head>
+<body>
+
+    <header>
+      <!-- Слева: кнопка словарика с картинкой -->
+      <button class="btn-dict btn-german">
+        <img src="./static/img/ed8a3ff9e031796859864b6482550ab1 2.png" alt="Словарик" class="dict-icon" />
+      </button>
+
+      <!-- По центру: Тема + поле + Ок -->
+      <div class="topic">
+        <span class="title__span">Тема:</span>
+        <input type="text" class="input-german" placeholder="Введите тему...">
+        <button class="ok-header-btn">Ок</button>
+      </div>
+
+      <!-- Справа: меню выбора языка -->
+      <div class="lang-menu-wrapper">
+        <button class="btn-lang-menu">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="0" width="28" height="3" rx="1.5" fill="#000"/>
+            <rect y="9" width="28" height="3" rx="1.5" fill="#000"/>
+            <rect y="18" width="28" height="3" rx="1.5" fill="#000"/>
+          </svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="index.html" class="lang-option">EN Английский</a>
+          <a href="german.html" class="lang-option active">DE Немецкий</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="dict-german">
+        <h3>Мой словарик</h3>
+        <form class="dict-form">
+            <input type="text" class="dict-input" placeholder="Слово">
+            <input type="text" class="dict-input" placeholder="Перевод">
+            <button type="submit" class="btn-add">Добавить</button>
+        </form>
+        <ul class="dict-list-german">
+            <li class="dict-item">Hallo - Привет</li>
+            <li class="dict-item">Danke - Спасибо</li>
+            <li class="dict-item">Ja - Да</li>
+            <li class="dict-item">Nein - Нет</li>
+            <li class="dict-item">Auf Wiedersehen - До свидания</li>
+        </ul>
+        <button class="btn-close-german">✕ Закрыть</button>
+    </div>
+    
+    <main class="main">
+        <img src="./static/img/volk.png" alt="Volk" class="center-image">
+        <div class="chat-wrapper" id="mainChat">
+            <div class="chat-body">
+                <div class="messages-area">
+                </div>
+                <form class="chat-form" id="chatForm">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Введите сообщение..." />
+                    <button type="submit" class="chat-send">→</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="german.js"></script>
+</body>
+</html>

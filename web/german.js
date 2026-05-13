@@ -1,11 +1,22 @@
-const btnDict = document.querySelector(".btn-french");
-const dict = document.querySelector(".dict-french");
-const btnClose = document.querySelector(".btn-close-french");
+// Меню языков
+const langMenuBtn = document.querySelector(".btn-lang-menu");
+const langDropdown = document.getElementById("langDropdown");
+langMenuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langDropdown.classList.toggle("open");
+});
+document.addEventListener("click", () => langDropdown.classList.remove("open"));
+
+const btnDict = document.querySelector(".btn-german");
+const dict = document.querySelector(".dict-german");
+const btnClose = document.querySelector(".btn-close-german");
 const form = document.querySelector(".dict-form");
 const inputs = document.querySelectorAll(".dict-input");
-const list = document.querySelector(".dict-list-french");
+const list = document.querySelector(".dict-list-german");
+const chat = document.getElementById('mainChat');
+const btn = document.getElementById('toggleChat');
 
-let words = JSON.parse(localStorage.getItem('frenchWords')) || [];
+let words = JSON.parse(localStorage.getItem('germanWords')) || [];
 
 btnDict.addEventListener("click", () => {
     dict.style.display = "block";
@@ -32,7 +43,6 @@ function addWord() {
     let translate = inputs[1].value.trim();
     
     if (word === "" || translate === "") {
-        alert("Введите слово и перевод");
         return;
     }
     
@@ -51,13 +61,26 @@ function addWord() {
 }
 
 function saveWords() {
-    localStorage.setItem('frenchWords', JSON.stringify(words));
+    localStorage.setItem('germanWords', JSON.stringify(words));
 }
+
+// Кнопка открытия/закрытия чата
+btn.addEventListener('click', () => {
+    if (chat.classList.contains('collapsed')) {
+        chat.classList.remove('collapsed');
+        chat.classList.add('expanded');
+        btn.textContent = '−';
+    } else {
+        chat.classList.remove('expanded');
+        chat.classList.add('collapsed');
+        btn.textContent = '+';
+    }
+});
 
 function renderWords() {
     list.innerHTML = "";
     
-    words.forEach((wordItem, index) => {
+    words.forEach((wordItem) => {
         let item = document.createElement("li");
         item.classList.add("dict-item");
         
@@ -82,10 +105,10 @@ function renderWords() {
             <path d="M14 11v6" />
             <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
         </svg>`;
-        
+
         deleteBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            words.splice(index, 1);
+            e.stopPropagation()
+            words = words.filter(word => word.id !== wordItem.id);
             saveWords();
             renderWords();
         });
@@ -96,3 +119,22 @@ function renderWords() {
 }
 
 renderWords();
+
+// Чат
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const messagesArea = document.querySelector('.messages-area');
+
+chatForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  if (text === '') return;
+
+  const msg = document.createElement('div');
+  msg.classList.add('msg-row', 'right');
+  msg.innerHTML = `<div class="bubble">${escapeHtml(text)}</div>`;
+  messagesArea.appendChild(msg);
+  messagesArea.scrollTop = messagesArea.scrollHeight;
+
+  chatInput.value = '';
+});
