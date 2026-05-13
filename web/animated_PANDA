@@ -1,0 +1,13 @@
+var images = [" <img src="https://i.pinimg.com/736x/a4/2b/85/a42b858b55b3d359e0ff5653012c5b64.jpg", " <img src="https://i.pinimg.com/474x/f7/34/78/f73478b9119478a3bcb2a20dddc435eb.jpg?nii=t"]; 
+var currentIndex = 0;
+
+function changeImage() {
+    document.getElementById('img').src = images[currentIndex];
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0; 
+    }
+}
+
+setInterval(changeImage, 3000); // 
