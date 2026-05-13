@@ -27,23 +27,13 @@ button {
 
 body {
   font-family: "Inter", sans-serif;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4a6fa5;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-image: url(./img/image\ 2.png);
+  background: no-repeat;
 }
 
 .btn-english,
 .btn-french {
     color: white;
-    border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -79,19 +69,21 @@ body {
     font-weight: bold;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .dict-english,
 .dict-french {
     position: fixed;
-    top: 0;
-    left: 0;
     background-color: white;
     padding: 20px;
     width: 280px;
     height: 100%;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     display: none;
-    z-index: 1000;
     overflow-y: auto;
 }
 
@@ -139,9 +131,30 @@ body {
 }
 
 .dict-item {
-    margin-bottom: 8px;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
+  margin-bottom: 8px;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dict-item__delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.dict-item__delete:hover {
+    opacity: 1;
+}
+
+.dict-item__icon {
+    display: block;
 }
 
 .btn-close-english,
@@ -161,24 +174,269 @@ body {
     background-color: #ff5252;
 }
 
-.main {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Кнопка словарика слева */
+.btn-french {
+  background-color: #51cf66;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.2s;
 }
 
-.main h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #4a6fa5;
+.btn-french:hover {
+  background-color: #40c057;
+}
+
+/* Тема справа */
+.topic {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.topic span {
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+
+.input-french {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+/* Ссылка перехода */
+.link {
+  background-color: #ff6b6b;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: #ff5252;
+}
+
+/* Словарик слева по центру */
+.dict-french {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: none;
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 0 10px 10px 0;
+  z-index: 1000;
+}
+
+.dict-french h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #4a6fa5;
+  text-align: center;
+}
+
+.dict-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dict-input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.btn-add {
+  background-color: #51cf66;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #40c057;
+}
+
+.dict-list-french {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.dict-item {
+  margin-bottom: 8px;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dict-item__delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  margin-left: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.dict-item__delete:hover {
+  opacity: 1;
+}
+
+.dict-item__icon {
+  display: block;
+}
+
+.btn-close-french {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.btn-close-french:hover {
+  background-color: #ff5252;
+}
+
+/* Основной контент - французская версия */
+body:has(header) .main {
+  background-image: url(./img/image\ 2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .content {
-    line-height: 1.6;
+  display: none;
 }
 
-.content p {
-    margin-bottom: 10px;
+/* Кнопка словарика для английской версии */
+.btn-english {
+  background-color: #51cf66;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn-english:hover {
+  background-color: #40c057;
+}
+
+/* Поле ввода для английской версии */
+.input-english {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+/* Словарик для английской версии */
+.dict-english {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: none;
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 0 10px 10px 0;
+  z-index: 1000;
+}
+
+.dict-english h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #4a6fa5;
+  text-align: center;
+}
+
+.dict-list-english {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-close-english {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.btn-close-english:hover {
+  background-color: #ff5252;
+}
+
+/* Фон для английской версии - картинка с волком (image 5.png) */
+body:has(.header) .main {
+  background-image: url(./img/image\ 5.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Заголовок для английской версии */
+.main h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 48px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
 }
