@@ -1,0 +1,13 @@
+var images = ['src="https://web.archive.org/web/20240614004719im_/https://static.wikia.nocookie.net/smesharikiarhives/images/a/a8/%D0%9F%D0%B8%D0%BD_%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D1%8B%D0%B9_%D0%B7%D0%BD%D0%B0%D0%BA.png/revision/latest/scale-to-width-down/1200?cb=20200929163818&path-prefix=ru', 'src="https://avatars.mds.yandex.net/i?id=d4ec27a5d79e8b2835434034567f28e7_sr-5865724-images-thumbs&n=13']; 
+var currentIndex = 0;
+
+function changeImage() {
+    document.getElementById('img').src = images[currentIndex];
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+}
+
+setInterval(changeImage, 3000); 
