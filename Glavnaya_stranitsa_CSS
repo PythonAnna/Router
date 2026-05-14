@@ -1,0 +1,48 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #add8e6, #4682b4); /* Голубой градиент сверху вниз */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Высота всего экрана */
+}
+
+h1 {
+    font-size: 5rem;
+    font-style: italic;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Стили для кнопки */
+.btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #4CAF50; /* Зелёный цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049; /* Тёмнее при наведении */
+}
