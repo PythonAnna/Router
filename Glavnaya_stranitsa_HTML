@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiSpeak</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Связываем с CSS-файлом -->
+</head>
+<body>
+    <div class="container">
+        <h1>MultiSpeak</h1>
+        <p>Вы попали на проект по изучению иностранных языков и практики написания и общения в формате развлекательной и увлекательной игры.</p>
+        <button class="btn" onclick="window.location.href='https://example.com/chat';">Перейти к общению</button>
+    </div>
+</body>
+</html>
